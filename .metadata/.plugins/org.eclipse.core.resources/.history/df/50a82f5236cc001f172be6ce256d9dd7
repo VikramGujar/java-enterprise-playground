@@ -1,0 +1,33 @@
+package databaseoperation;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DatabaseConnection {
+
+	private static Connection con;
+	
+	private DatabaseConnection() {};
+	
+	static {
+		
+		try {
+			
+			// Class Loading
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			//Creating Connection
+			con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","System","tonystark");
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	// Method For Returning Object of Connection
+	public static Connection getConnection()
+	{
+		return con;
+	}
+}

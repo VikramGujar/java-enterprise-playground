@@ -1,0 +1,43 @@
+package com.advjava.jan_06;
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class ConnectionDemo 
+{
+	public static void main(String[] args) 
+	{
+		try 
+		{
+			
+			// Class Loading
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			//Creating Connection
+			 Connection con=DriverManager.getConnection
+					 ("jdbc:oracle:thin:@localhost:1521:xe","System","tonystark");
+			 
+			 Statement stmt=con.createStatement();   
+			 ResultSet rs=stmt.executeQuery("select * from employees");  
+			 
+			 while(rs.next())  
+				 System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));  
+				   
+				 //step5 close the connection object  
+				 con.close();  
+				   
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+		
+		
+		
+}

@@ -1,0 +1,40 @@
+package com.advjava.jan_06;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class ConnectionDemo {
+    public static void main(String[] args) {
+        try {
+            // Class Loading
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+
+            // Creating Connection
+            Connection con = DriverManager.getConnection(
+                "jdbc:oracle:thin:@localhost:1521:xe", "System", "tonystark"
+            );
+
+            // Creating Statement
+            Statement stmt = con.createStatement();
+
+            // Executing Query
+            ResultSet rs = stmt.executeQuery("SELECT * FROM employees");
+
+            // Processing ResultSet
+            while (rs.next()) {
+                int id = rs.getInt(1); // Assuming 'id' is the first column
+                String name = rs.getString(2); // Assuming 'name' is the second column
+                int salary = rs.getInt(3); // Assuming 'salary' is the third column
+
+                System.out.println("ID: " + id + ", Name: " + name + ", Salary: " + salary);
+            }
+
+            // Close connection
+            con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

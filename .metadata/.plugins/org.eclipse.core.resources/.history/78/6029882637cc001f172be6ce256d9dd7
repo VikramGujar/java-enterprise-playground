@@ -1,0 +1,30 @@
+
+import java.sql.DriverManager;
+
+public class ConnectionDemo {
+
+	
+	private ConnectionDemo() {};
+	
+	static {
+		
+		try {
+			
+			// Class Loading
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			//Creating Connection
+			con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","System","tonystark");
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	// Method For Returning Object of Connection
+	public static Connection getConnection()
+	{
+		return con;
+	}
+}
