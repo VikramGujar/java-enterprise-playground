@@ -18,7 +18,7 @@ public class ConnectionDemo {
               
             
             
-            
+            ;
             while(rs.next())
             {
             int id = rs.getInt(1); 

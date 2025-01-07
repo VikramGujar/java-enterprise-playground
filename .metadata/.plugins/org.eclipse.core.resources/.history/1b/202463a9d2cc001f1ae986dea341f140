@@ -18,14 +18,15 @@ public class ConnectionDemo {
               
             
             
-            
-            while(rs.next())
-            {
+            rs.next();
+            while (en.hasMoreElements()) {
+				type type = (type) en.nextElement();
+				
+			}
             int id = rs.getInt(1); 
             String name = rs.getString(2); 
             int salary = rs.getInt(3);
             System.out.println(id+" "+name+" "+salary);
-            }
             
    
         } catch (Exception e) {

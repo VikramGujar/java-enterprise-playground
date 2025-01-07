@@ -1,0 +1,10 @@
+package com.practice.jan_07;
+
+public class DisplayDataFromTable {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

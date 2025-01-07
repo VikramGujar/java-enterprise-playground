@@ -18,14 +18,11 @@ public class ConnectionDemo {
               
             
             
-            
-            while(rs.next())
-            {
+            rs.next();
             int id = rs.getInt(1); 
             String name = rs.getString(2); 
             int salary = rs.getInt(3);
             System.out.println(id+" "+name+" "+salary);
-            }
             
    
         } catch (Exception e) {

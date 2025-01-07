@@ -1,0 +1,36 @@
+# Ignore Java and IDE-specific files
+*.class
+*.jar
+*.war
+*.ear
+
+# Ignore compiled output
+/build/
+out/
+target/
+
+# Ignore IntelliJ IDEA project files
+*.iml
+.idea/
+
+# Ignore Eclipse project files
+*.project
+*.classpath
+*.settings/
+
+# Ignore NetBeans project files
+nbproject/
+*.nb-gradle/
+
+# Ignore Maven/Gradle-related files
+.mvn/
+.gradle/
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore sensitive files
+*.properties
+*.env
