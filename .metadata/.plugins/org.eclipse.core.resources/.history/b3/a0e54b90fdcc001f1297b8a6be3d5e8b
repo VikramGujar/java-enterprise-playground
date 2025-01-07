@@ -1,0 +1,55 @@
+package com.practice.jan_07;
+
+import java.sql.*;
+import java.util.Scanner;
+
+
+public class ProductDataHandling 
+{
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		try(sc;) 
+		{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection
+					("jdbc:oracle:thin:@localhost:1521:xe","ststem","tonystark");
+			
+			Statement st = con.createStatement();
+			
+			while(true)
+			{
+				System.out.println("********************Product Data Management********************");
+				System.out.println(
+						"\t 1. Add Product"
+						+"\t2. Display All Products"
+						+ "\t3.Display Product by ID"
+						+ "\t Enter Your Choice : ");
+				int choice = Integer.parseInt(sc.nextLine());
+				
+				switch (choice) 
+				{
+					case 1: 
+					{
+						System.out.println("Enter product ID :");
+						int prodId = Integer.parseInt(sc.nextLine()); 
+					
+					}
+					default:
+					System.err.println("Invalid input! Try again.");
+				}
+				
+			}
+			
+			
+			
+		} catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+
+	}
+
+}

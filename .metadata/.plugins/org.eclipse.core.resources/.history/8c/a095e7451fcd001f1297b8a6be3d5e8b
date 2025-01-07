@@ -1,0 +1,65 @@
+package com.practice.jan_07;
+
+import java.sql.*;
+import java.util.Scanner;
+
+public class EmployeeDataManagment 
+{
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		try(sc;)
+		{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			Connection con = DriverManager.getConnection
+					("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+			
+			Statement st = con.createStatement();
+			
+			while(true)
+			{
+				System.out.println("==================Employee management System================\n\n");
+			}
+			
+			System.out.println("Enter ID :");
+			int id = Integer.parseInt(sc.nextLine());
+			
+			System.out.println("Enter NAME :");
+			String name = sc.nextLine();
+			
+			System.out.println("Enter DESIGNATION :");
+			String designation = sc.nextLine();
+			
+			System.out.println("Enter BASIC SALARY :");
+			double sal = Double.parseDouble(sc.nextLine());
+			
+			double hra = 0.96 * sal;
+			double da = 0.61 * sal;
+			double tSal = sal + hra + da; 
+			
+			int update = st.executeUpdate("Insert into employee70 values "
+					+ "("+id+",'"+name+"', '"+designation+"', "+sal+", "+hra+", "+da+", "+tSal+")");
+			
+			
+
+			
+			if(update>0)
+				System.out.println("Employee added succefully!!!");
+			else
+				System.out.println("Employee already exist");
+			
+			
+			
+			
+		}catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+		
+
+	}
+
+}
