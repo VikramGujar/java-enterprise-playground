@@ -24,9 +24,8 @@ public class EmployeeDataManagment
 				System.out.println("\n\n==================Employee management System================\n\n");
 				System.out.println("1. Add Employee\n"
 						+ "2. Get employee by Id\n"
-						+ "3. Remove employee by ID\n"
-						+ "4. Display all employee\n"
-						+ "5. Exit\n");
+						+ "3. Display all employee\n"
+						+ "4. Exit\n");
 				
 				System.out.println("Enter your choice");
 				int choice = Integer.parseInt(sc.nextLine());
@@ -84,22 +83,8 @@ public class EmployeeDataManagment
 					}
 					case 3:
 					{
-						System.out.println("Enter id of Employee you want to Remove :");
-						int removeId = Integer.parseInt(sc.nextLine());
-						
-						int update = st.executeUpdate
-								("delete from employee70 where eid ="+removeId+"" );
-						
-						if(update>0)
-							System.out.println("Id "+removeId+" record deleted succesfully!");
-						else
-							System.out.println("Record not deleted");
-						break;
-					}
-					case 4:
-					{
 						System.out.println("**********-Employee Data-***********");
-						//System.out.println("ID \t NAME \t DESIGNATION \t SALARY \t HRA \t DA \t TOTAL SALARY  ");
+						System.out.println("ID \t NAME \t DESIGNATION \t SALARY \t HRA \t DA \t TOTAL SALARY  ");
 						ResultSet rs = st.executeQuery("select * from employee70");
 						while(rs.next())
 						{
@@ -117,7 +102,7 @@ public class EmployeeDataManagment
 						}
 						break;
 					}
-					case 5:
+					case 4:
 					{
 						System.out.println("Thank You For visit\nBye bye!!!");
 						System.exit(0);

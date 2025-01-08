@@ -87,14 +87,8 @@ public class EmployeeDataManagment
 						System.out.println("Enter id of Employee you want to Remove :");
 						int removeId = Integer.parseInt(sc.nextLine());
 						
-						int update = st.executeUpdate
-								("delete from employee70 where eid ="+removeId+"" );
-						
-						if(update>0)
-							System.out.println("Id "+removeId+" record deleted succesfully!");
-						else
-							System.out.println("Record not deleted");
-						break;
+						ResultSet rs = st.executeUpdate
+								("delete from employee70 where id ="+removeId+""");
 					}
 					case 4:
 					{

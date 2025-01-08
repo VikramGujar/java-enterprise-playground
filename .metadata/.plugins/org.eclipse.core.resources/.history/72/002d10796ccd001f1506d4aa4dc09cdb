@@ -84,20 +84,6 @@ public class EmployeeDataManagment
 					}
 					case 3:
 					{
-						System.out.println("Enter id of Employee you want to Remove :");
-						int removeId = Integer.parseInt(sc.nextLine());
-						
-						int update = st.executeUpdate
-								("delete from employee70 where eid ="+removeId+"" );
-						
-						if(update>0)
-							System.out.println("Id "+removeId+" record deleted succesfully!");
-						else
-							System.out.println("Record not deleted");
-						break;
-					}
-					case 4:
-					{
 						System.out.println("**********-Employee Data-***********");
 						//System.out.println("ID \t NAME \t DESIGNATION \t SALARY \t HRA \t DA \t TOTAL SALARY  ");
 						ResultSet rs = st.executeQuery("select * from employee70");
@@ -117,7 +103,7 @@ public class EmployeeDataManagment
 						}
 						break;
 					}
-					case 5:
+					case 4:
 					{
 						System.out.println("Thank You For visit\nBye bye!!!");
 						System.exit(0);
