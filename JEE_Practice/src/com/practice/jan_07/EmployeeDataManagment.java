@@ -22,9 +22,11 @@ public class EmployeeDataManagment
 			while(true)
 			{
 				System.out.println("\n\n==================Employee management System================\n\n");
-				System.out.println("1. Add Employee\n"
+				System.out.println(
+						  "1. Add Employee\n"
 						+ "2. Get employee by Id\n"
-						+ "3. Remove employee by ID\n"
+						+ "3. Remove employee by Id\n"
+						+ "4. Update employee by Id\n"
 						+ "4. Display all employee\n"
 						+ "5. Exit\n");
 				
@@ -141,3 +143,4 @@ public class EmployeeDataManagment
 	}
 
 }
+

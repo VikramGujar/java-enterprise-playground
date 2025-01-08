@@ -1,0 +1,67 @@
+package com.practice.jan_08;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class EmployeeInfo 
+{
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		try(sc)
+		{
+			Class.forName("oracle.jdbc.driver.DriverManager");
+			
+			Connection con = DriverManager.getConnection
+					("jdbc:oracle:thin:@localhost:1521:xe","System","tonystark");
+			
+			Statement st = con.createStatement();
+			
+			while(true)
+			{
+				System.out.println
+				  ("1.Insert data into Employee Table.\n"
+			      +"2.Update employee salary,empMailId and empPhNo with the help of eid.\n"
+			      +"3.Find those employee whose name starts with 'A'.\n"
+			      +"4.Count how many employee record present in table.  \n"      
+			      +"5.delete employee who is getting maximum salary.\n"
+			      +"6.Show all employee.\n");
+				
+				System.out.println("\nEnter your choice");
+				int choice = Integer.parseInt(sc.nextLine());
+				
+				switch (key) 
+				{
+				case value: 
+				{
+					
+					yield type;
+				}
+				default:
+					System.err.println("Invalid input! Try again.");
+				}
+			}
+		} catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+
+	}
+
+}
+/*
+Assignment1::	Write a jdbc program as follows:
+
+Table Name:Employee_Info.
+
+Table Columns:-empId,empName,empSalary,empAddress,empMailId,empPhNo.
+Note:  
+update tn set eid 
+	   create table from oracle command prompt.
+      
+Note:Use switch statement to complete this task.
+*/

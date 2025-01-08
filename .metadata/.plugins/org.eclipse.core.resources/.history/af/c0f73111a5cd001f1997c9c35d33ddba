@@ -1,0 +1,148 @@
+package com.practice.jan_08;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class EmployeeInfo 
+{
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		try(sc)
+		{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			Connection con = DriverManager.getConnection
+					("jdbc:oracle:thin:@localhost:1521:xe","System","tonystark");
+			
+			Statement st = con.createStatement();
+			
+			while(true)
+			{
+				System.out.println
+				  ("1.Insert data into Employee Table.\n"
+			      +"2.Update employee salary,empMailId and empPhNo with the help of eid.\n"
+			      +"3.Find those employee whose name starts with 'A'.\n"
+			      +"4.Count how many employee record present in table.  \n"      
+			      +"5.delete employee who is getting maximum salary.\n"
+			      +"6.Show all employee.\n");
+				
+				System.out.println("\nEnter your choice");
+				int choice = Integer.parseInt(sc.nextLine());
+				
+				switch (choice) 
+				{
+				case 1: 
+				{
+					System.out.println("Enter ID :");
+					int id = Integer.parseInt(sc.nextLine());
+					
+					System.out.println("Enter NAME :");
+					String name = sc.nextLine();
+					
+					System.out.println("Enter BASIC SALARY :");
+					double sal = Double.parseDouble(sc.nextLine());
+					
+					System.out.println("Enter your Main Id :");
+					String mailId = sc.nextLine();
+					
+					System.out.println("Enter your Phone Number :");
+					long phone = Long.parseLong(sc.nextLine());
+					
+					int update = st.executeUpdate("Insert into employee_info values "
+							+ "("+id+",'"+name+"', '"+sal+"', '"+mailId+"', "+phone+")");
+		
+					if(update>0)
+						System.out.println("Employee added succefully!!!");
+					else
+						System.out.println("Employee already exist");
+					break;
+				}
+				case 2: 
+				{
+					System.out.println("Enter id of employee you want to update :");
+					int updateId = Integer.parseInt(sc.nextLine());
+					
+					ResultSet rs = st.executeQuery("Select * from employee_info where eid = "+updateId+"");
+					
+					if(!rs.next())
+						System.out.println("No record avalable with Id "+updateId);
+					else
+					{
+						System.out.println("Enter NAME to update :");
+						String name = sc.nextLine();
+						
+						System.out.println("Enter BASIC SALARY to update :");
+						double sal = Double.parseDouble(sc.nextLine());
+						
+						System.out.println("Enter your Main Id to update :");
+						String mailId = sc.nextLine();
+						
+						System.out.println("Enter your Phone Number to update :");
+						long phone = Long.parseLong(sc.nextLine());
+						
+						int update = st.executeUpdate("Update employee_info set EMPNAME ='"+name+"', '\"+sal+\"', '\"+mailId+\"', \"+phone+\"  ");
+					}
+					                                                                                        NUMBER(10)
+					                                                                                       VARCHAR2(20)
+					 EMPSAL                                                                                       NUMBER(20)
+					 EMPMAILID                                                                                    VARCHAR2(20)
+					 EMPPHONE 
+					
+					
+					break;
+				}
+				case 3: 
+				{
+					
+					break;
+				}
+				case 4: 
+				{
+					
+					break;
+				}
+				case 5: 
+				{
+					
+					break;
+				}
+				case 6: 
+				{
+					
+					break;
+				}
+				case 7: 
+				{
+					
+					break;
+				}
+				default:
+					System.err.println("Invalid input! Try again.");
+				}
+			}
+		} catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+
+	}
+
+}
+/*
+Assignment1::	Write a jdbc program as follows:
+
+Table Name:Employee_Info.
+
+Table Columns:-empId,empName,empSalary,empAddress,empMailId,empPhNo.
+Note:  
+update tn set eid 
+	   create table from oracle command prompt.
+      
+Note:Use switch statement to complete this task.
+*/

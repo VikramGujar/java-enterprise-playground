@@ -1,0 +1,18 @@
+package com.practice.jan_08;
+
+public class EmployeeInfo 
+{
+
+	public static void main(String[] args) 
+	{
+		try 
+		{
+			
+		} catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+
+	}
+
+}
