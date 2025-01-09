@@ -1,0 +1,115 @@
+package com.practice.jan_09;
+
+import java.sql.*;
+import java.util.*;
+
+public class RegistrationAndLogin 
+{
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+				
+		try(sc;)
+		{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			Connection con = DriverManager.getConnection
+					("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+			
+	
+			Statement st = con.createStatement();
+			PreparedStatement pst = con.prepareStatement("insert into reglog09 values (?,?,?,?,?,?,?)");
+			
+			while(true)
+			{
+				System.out.println
+				("\n******Registration and Login System*********\n"
+						+ "\n\t1.Rgister a New User"
+						+ "\n\t2.Login to system"
+						+ "\n\t3.Exit");
+				
+				int sysChoice = Integer.parseInt(sc.nextLine());
+				
+				switch(sysChoice)
+				{
+				case 1:
+					System.out.println("\n*******Register a new user********\n");
+					
+					System.out.println("Enter user-id :");
+					int id = Integer.parseInt(sc.nextLine());
+					
+					System.out.println("Enter user-name :");
+					String name = sc.nextLine();
+					
+					System.out.println("Enter user-password :");
+					String pass = sc.nextLine();
+					
+					System.out.println("Enter user-first name :");
+					String fname = sc.nextLine();
+					
+					System.out.println("Enter user-last name :");
+					String lname = sc.nextLine();
+					
+					System.out.println("Enter user-mail-id :");
+					String mail = sc.nextLine();
+					
+					System.out.println("Enter user-phone number :");
+					String phone = sc.nextLine();
+					
+					pst.setInt(1, id);
+					pst.setString(2, name);
+					pst.setString(3, pass);
+					pst.setString(4, fname);
+					pst.setString(5, lname);
+					pst.setString(6, mail);
+					pst.setString(7, phone);
+					
+					int update = pst.executeUpdate();
+					if(update>0)
+					{
+						System.out.println("Registration succesfully completed !!!");
+					}
+					else
+						System.err.println("Registration failed!");
+					break;
+					
+				case 2:
+					System.out.println("\n******Enter login details*******\n");
+					
+					System.out.println("Enter user-id");
+					int lId = Integer.parseInt(sc.nextLine());
+					
+					System.out.println("Enter user-password");
+					String lPass = sc.nextLine();
+					
+					ResultSet rs = st.executeQuery("select * from reglog09 where id="+lId+"");
+					
+					rs.next();
+					String uPass = rs.getString(3);
+					if(uPass == lPass)
+					{
+						System.out.println("\n*****Login Succesfull!!!*****\n");
+						System.out.println
+						("\n\t1.Show all Custemers"
+								+ "\n\t2.Update Custemer [ mail and phone number ]");
+					}
+					
+				case 3:
+					System.out.println("Thanks, Bye bye!!!");
+					System.exit(0);
+					
+				default:
+					System.err.println("Invalid input, Try again!");
+				}
+			}
+		}
+		catch (Exception e) 
+		{
+			
+		}
+		
+
+	}
+
+}
