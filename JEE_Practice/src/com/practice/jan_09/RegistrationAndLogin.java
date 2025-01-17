@@ -20,6 +20,7 @@ public class RegistrationAndLogin
 	
 			Statement st = con.createStatement();
 			PreparedStatement pst = con.prepareStatement("insert into reglog09 values (?,?,?,?,?,?,?)");
+			PreparedStatement upPst = con.prepareStatement("update table reglog09 values (?,?)");
 			
 			while(true)
 			{
@@ -88,13 +89,16 @@ public class RegistrationAndLogin
 					String uPass = rs.getString(3);
 					if(lPass.equals(uPass))
 					{
+						while(true)
+						{
 						System.out.println("\n*****Login Succesfull!!!*****\n");
 						System.out.println
 						("\n\t1.Show all Custemers"
 								+ "\n\t2.Update Custemer [ mail and phone number ]"
-								+ "\n\t3.Delet Custemer start name with 's' "
+								+ "\n\t3.Delet Custemer by id start name with 's' "
 								+ "\n\t4.Show custemer with prime id"
-								+ "\n\t5.Exit");
+								+ "\n\t5.Delete Custemer start name with 's' "
+								+ "\n\t6.Exit");
 						System.out.println("\nEnter your choice :");
 						int logChoice = Integer.parseInt(sc.nextLine());
 						
@@ -117,6 +121,18 @@ public class RegistrationAndLogin
 										+allMail+" \t "+allPhone+"");
 							}
 							break;
+						case 2:
+							System.out.println("Enter id of custemer you want to update :");
+							int uId = Integer.parseInt(sc.nextLine());
+							
+							int logUpdate = upPst.executeUpdate();
+							
+							if(logUpdate>0)
+								System.out.println("Record updated succesfully!");
+							else
+								System.out.println("Record not updated");
+							
+							
 						case 3:
 								System.out.println("Enter id of custemer you want to delete :");
 								int dId = Integer.parseInt(sc.nextLine());
@@ -127,13 +143,15 @@ public class RegistrationAndLogin
 								else
 									System.out.println("Custemer not exist");
 							break;
-						case 5:
+						case 6:
 							System.out.println("Thanks, Bye bye!!!");
 							System.exit(0);	
+							break;
 						
 						default:
 							System.err.println("Invalid input, Try again!");
 						}
+					}
 					}else
 						System.err.println("Incorrect Password!!!");
 					break;
