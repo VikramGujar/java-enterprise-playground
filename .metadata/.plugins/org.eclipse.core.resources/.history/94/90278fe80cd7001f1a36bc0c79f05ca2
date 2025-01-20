@@ -1,0 +1,39 @@
+package com.practice.jan_20;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+public class EmployeeData 
+{
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		try (sc;)
+		{
+			Class.forName("oracle.jdbc.driver.DriverManager");
+			
+			Connection con = DriverManager.getConnection
+					("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+			
+			PreparedStatement selectAll = con.prepareStatement
+					("Select * from employee20");
+			
+			PreparedStatement insert = con.prepareStatement
+					("Insert into employee20 values (?,?,?,?)");
+			
+			ResultSet rs = selectAll.executeQuery();
+			
+			for()
+		} catch (Exception e) 
+		{
+			
+		}
+
+	}
+
+}

@@ -1,0 +1,69 @@
+package com.practice.jan_20;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class ProductData 
+{
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		try(sc;)
+		{
+		
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			Connection con = DriverManager.getConnection
+					("jdbc:oracle:thin:@localhost:1521:xe","System","tonystark");
+			
+			Statement st = con.createStatement();
+			
+			while(true)
+			{
+				System.out.println("\n****** Product Data Managment ******\n");
+				System.out.println(" \r1.Insert productdetails into product table.\n"
+						+ "          2.Retrieve productdetails in forward direction.\n"
+						+ "          3.Retrieve productdetails in reverse direction.\n"
+						+ "          4.Retrieve 3rd record from top.\n"
+						+ "          5.Retrieve 3rd record from bottom.\n"
+						+ "          6.Retrieve last three record from product table.\n"
+						+ "7.Exit");
+				
+				System.out.println("\n\t Enter your choice :");
+				int choice = sc.nextInt();
+				
+				switch(choice)
+				{
+				case 1 :
+					ResultSet select = st.executeQuery("Select * from product20");
+					while(select.next())
+					{
+						System.out.println("Product Id = "
+								+select.getInt(1)+ "Product Name = "
+								+select.getString(2)+ "Product Price = "
+								+select.getDouble(3)+ "Product QTY = "
+								+select.getInt(4)+ "");
+					}
+					break;
+					
+				case 7:
+					System.out.println("Thank you! See you soon...");
+					System.exit(0);
+					
+				default:
+					System.err.println("Invalid input! Try again");
+				}
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+
+	}
+
+}

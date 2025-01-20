@@ -1,0 +1,55 @@
+package com.practice.jan_20;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class EmployeeData 
+{
+
+	public static void main(String[] args) 
+	{
+		
+		Scanner sc = new Scanner(System.in);
+		
+		try (sc;)
+		{
+			Class.forName("oracle.jdbc.driver.DriverManager");
+			
+			Connection con = DriverManager.getConnection
+					("jdbc:oracle:thin:@localhost:1521:xe","system","tonystark");
+			
+			Statement st = con.createStatement();
+			
+			PreparedStatement selectAll = con.prepareStatement
+					("Select * from employee20");
+		
+			ResultSet rs = st.executeQuery("Select * from employee20");
+			System.out.println("hello");
+			while(rs.next())
+			{
+				int id = rs.getInt(1);
+				String name = rs.getString(2);
+				int age = rs.getInt(3);
+				double sal = rs.getDouble(4);
+				
+				System.out.println(" Id = "
+						+id+ "Name = "
+						+name+ "Age = "
+						+age+ "Salary = "
+								+sal+ " ");
+			}
+			
+		
+			
+		} catch (Exception e) 
+		{
+			
+		}
+
+	}
+
+}
