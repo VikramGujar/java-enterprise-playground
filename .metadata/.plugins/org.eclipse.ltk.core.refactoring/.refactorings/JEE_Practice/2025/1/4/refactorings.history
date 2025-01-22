@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.practice.jan_21.EmployeeInfo&apos; to &apos;InsertImageIntoDB&apos;&#x0D;&#x0A;- Original project: &apos;JEE_Practice&apos;&#x0D;&#x0A;- Original element: &apos;com.practice.jan_21.EmployeeInfo&apos;&#x0D;&#x0A;- Renamed element: &apos;com.practice.jan_21.InsertImageIntoDB&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;EmployeeInfo&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.practice.jan_21{EmployeeInfo.java[EmployeeInfo" matchStrategy="1" name="InsertImageIntoDB" qualified="false" references="true" similarDeclarations="false" stamp="1737539119503" textual="false" version="1.0"/>
+</session>

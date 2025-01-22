@@ -1,0 +1,12 @@
+package com.practice.jan_21;
+
+public class GetImageFromDB 
+{
+
+	public static void main(String[] args) 
+	{
+		
+
+	}
+
+}
