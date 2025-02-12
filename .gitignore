@@ -34,3 +34,4 @@ Thumbs.db
 # Ignore sensitive files
 *.properties
 *.env
+/.metadata/

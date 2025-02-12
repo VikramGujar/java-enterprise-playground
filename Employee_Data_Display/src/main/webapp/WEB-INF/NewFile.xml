@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app>
+	<web-welcome-file>
+		<welcome-file>
+			index.html
+		</welcome-file>
+	</web-welcome-file>
+</web-app>
