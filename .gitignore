@@ -1,37 +1,78 @@
-# Ignore Java and IDE-specific files
+# Compiled class files
 *.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
 *.jar
 *.war
 *.ear
 
-# Ignore compiled output
-/build/
-out/
-target/
+# Eclipse project files
+.settings/
+.classpath
+.project
+.metadata/
 
-# Ignore IntelliJ IDEA project files
-*.iml
+# IntelliJ IDEA files
 .idea/
+*.iml
 
-# Ignore Eclipse project files
-*.project
-*.classpath
-*.settings/
+# Maven specific
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
 
-# Ignore NetBeans project files
-nbproject/
-*.nb-gradle/
-
-# Ignore Maven/Gradle-related files
-.mvn/
+# Gradle specific
 .gradle/
-*.log
+build/
+!gradle/wrapper/gradle-wrapper.jar
 
-# Ignore OS-specific files
+# NetBeans specific
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+*.nbattrs
+
+# VS Code
+.vscode/
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# MacOS specific
 .DS_Store
-Thumbs.db
 
-# Ignore sensitive files
-*.properties
-*.env
-/.metadata/
+# Windows specific
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# JDBC configuration files
+db.properties
+database.properties
+config/
+
+# Servlet and JSP specific
+*.jsp~
+*.jsp.class
+*.jspx~
+*.jspx.class
+*.war
