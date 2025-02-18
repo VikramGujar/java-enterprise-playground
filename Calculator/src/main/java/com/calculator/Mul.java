@@ -5,8 +5,8 @@ import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 
 @SuppressWarnings("serial")
-@WebServlet("/ad")
-public class Add extends GenericServlet
+@WebServlet("/ml")
+public class Mul extends GenericServlet
 {
 
 	@Override
@@ -21,9 +21,9 @@ public class Add extends GenericServlet
 			int v1 = Integer.parseInt(req.getParameter("v1"));
 			int v2 = Integer.parseInt(req.getParameter("v2"));
 			
-			int sum = v1+v2;
+			int mul = v1*v2;
 			
-			pw.println("Sum = "+sum);
+			pw.println("Mul = "+mul);
 			
 		}catch (Exception e) 
 		{
