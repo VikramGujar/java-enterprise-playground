@@ -12,7 +12,7 @@
 	AdminBean ab = (AdminBean) session.getAttribute("abean");
 	out.println("Welcome Admin : "+ab.getFirstName()+"<br>");
 	%>
-	<a href="Product.html">AddProduct</a>
+	<a href="product.html">AddProduct</a>
 	<a href="view">ViewAllProduct</a>
 	<a href="logout">LogOut</a>
 	
