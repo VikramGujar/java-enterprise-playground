@@ -22,12 +22,12 @@ if(al.size()==0)
 	while(it.hasNext())
 	{
 		ProductBean pb = (ProductBean) it.next();
-		out.println(pb.getClass()+"&nbsp"
+		out.println(pb.getCode()+"&nbsp"
 				+pb.getName()+"&nbsp"
 				+pb.getPrice()+"&nbsp"
 				+pb.getQty()+"&nbsp"
-				+"<a href='edit'>Edit</a>"
-				+"<a href='delete'>Delete</a>"+"<br>");
+				+"<a href='edit?pcode="+pb.getCode()+"'>Edit</a>"
+				+"<a href='delete?pcode="+pb.getCode()+"'>Delete</a>"+"<br>");
 	}
 }
 %>

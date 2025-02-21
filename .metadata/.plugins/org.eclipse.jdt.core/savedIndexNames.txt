@@ -12,9 +12,7 @@ INDEX VERSION 1.134+C:\Users\vikra\OneDrive\Desktop\ADV_JAVA\.metadata\.plugins\
 80914538.index
 1776115779.index
 1591423556.index
-2166437754.index
 4095266879.index
 2974776448.index
 683538315.index
-3014660471.index
 3019031013.index
