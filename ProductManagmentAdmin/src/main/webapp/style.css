@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa; /* Light grey background */
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Form Styling */
+.form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Admin Login Page */
+.btn-custom {
+    background-color: #007bff;
+    color: white;
+    transition: 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: #0056b3;
+}
+/* Admin Dashboard Styles */
+.card {
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.card h3 {
+    font-weight: bold;
+}
+
+.btn {
+    width: 150px;
+}
+/* View All Products Page */
+.card {
+    border-radius: 10px;
+}
+
+.table {
+    text-align: center;
+}
+
+.btn-sm {
+    margin: 2px;
+}
+
+
+/* Table Styling */
+.table-custom {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #343a40;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

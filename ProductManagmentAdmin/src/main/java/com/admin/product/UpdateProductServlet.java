@@ -21,6 +21,7 @@ public class UpdateProductServlet extends HttpServlet
 			req.setAttribute("msg", "Session Expired...<br>");
 			req.getRequestDispatcher("msg.jsp").forward(req, res);
 		}else {
+			@SuppressWarnings("unchecked")
 			ArrayList<ProductBean> al = (ArrayList<ProductBean>) hs.getAttribute("alsit");
 			String pC = req.getParameter("pcode");
 			Iterator<ProductBean> it = al.iterator();
@@ -34,6 +35,12 @@ public class UpdateProductServlet extends HttpServlet
 					pb.setPrice(Float.parseFloat(req.getParameter("price")));
 					pb.setQty(Integer.parseInt(req.getParameter("qty")));
 					int k = new UpdateProductDAO().update(pb);
+					
+					if(k>0)
+					{
+						req.setAttribute("msg","Product updated successfully...<br>");
+						req.getRequestDispatcher("updatedProduct.jsp").forward(req, res);
+					}
 				}
 			}
 		}
